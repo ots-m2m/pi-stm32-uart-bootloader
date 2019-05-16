@@ -82,13 +82,13 @@ export class Stm32UartBootloader extends events.EventEmitter implements Stm32Uar
     }
 
     private async _deassertReset() {
-        wpi.digitalWrite(this.resetPin, 1);
+        wpi.digitalWrite(this.resetPin, 0);
         wpi.pinMode(this.resetPin, wpi.OUTPUT);
     }
 
     private async _assertReset() {
-        wpi.digitalWrite(this.resetPin, 0);
-        wpi.pinMode(this.resetPin, wpi.INPUT);
+        wpi.digitalWrite(this.resetPin, 1);
+        wpi.pinMode(this.resetPin, wpi.OUTPUT);
     }
 
     private async _openSerialPort() {
